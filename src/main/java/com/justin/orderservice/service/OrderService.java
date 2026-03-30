@@ -3,9 +3,7 @@ package com.justin.orderservice.service;
 
 import com.justin.orderservice.entity.Order;
 import com.justin.orderservice.repository.OrderRepository;
-import dto.UserDto;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Optional;

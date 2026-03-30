@@ -3,7 +3,6 @@ package com.justin.orderservice.controller;
 
 import com.justin.orderservice.entity.Order;
 import com.justin.orderservice.service.OrderService;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,12 +18,12 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @GetMapping
+    @PostMapping
     public Order createOrder(@RequestBody Order order){
     return orderService.saveOrder(order);
     }
 
-    @PostMapping
+    @GetMapping
     public List<Order> getAllOrders(){
         return orderService.getAllOrders();
     }

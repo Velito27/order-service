@@ -3,10 +3,10 @@ package com.justin.orderservice.controller;
 
 import com.justin.orderservice.entity.Order;
 import com.justin.orderservice.service.OrderService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/orders")
@@ -19,18 +19,14 @@ public class OrderController {
     }
 
     @PostMapping
-    public Order createOrder(@RequestBody Order order){
-    return orderService.saveOrder(order);
+    public ResponseEntity<Order> createOrder(@RequestBody Order order) {
+        Order savedOrder = orderService.createOrder(order);
+        return ResponseEntity.ok(savedOrder);
     }
 
     @GetMapping
-    public List<Order> getAllOrders(){
-        return orderService.getAllOrders();
-    }
-
-    @GetMapping("/{id}")
-    public Optional<Order>getOrderById(@PathVariable Long id){
-    return orderService.getOrderById(id);
+    public ResponseEntity<List<Order>> getAllOrders() {
+        return ResponseEntity.ok(orderService.getAllOrders());
     }
 
 }

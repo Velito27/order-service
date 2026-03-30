@@ -2,16 +2,16 @@ package com.justin.orderservice.entity;
 
 
 import jakarta.persistence.*;
-import org.aspectj.weaver.ast.Or;
 
 @Entity
+@Table(name = "orders")
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Long productsId;
+    private Long productId;
 
     private Long userId;
 
@@ -20,9 +20,9 @@ public class Order {
     public Order(){
     }
 
-    public Order (Long id, Long productsId, Long userId, Long quantity){
+    public Order (Long id, Long productId, Long userId, Long quantity){
         this.id = id;
-        this.productsId = productsId;
+        this.productId = productId;
         this.userId = userId;
         this.quantity = quantity;
     }
@@ -30,8 +30,8 @@ public class Order {
     public Long getId(){
         return id;
     }
-    public Long getProductsId(){
-        return productsId;
+    public Long getProductId(){
+        return productId;
     }
     public Long getUserId(){
         return userId;
@@ -43,8 +43,8 @@ public class Order {
     public void setId(Long id){
         this.id = id;
     }
-    public void setProductsId(Long productsId){
-        this.productsId = productsId;
+    public void setProductId(Long productId){
+        this.productId = productId;
     }
     public void setUserId(Long userId){
         this.userId = userId;
